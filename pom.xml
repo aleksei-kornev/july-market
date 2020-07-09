@@ -8,13 +8,11 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-
 	<groupId>com.geekbrains.july.market</groupId>
 	<artifactId>july-market</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>july-market</name>
 	<description>Geekbrain July Market</description>
-	<packaging>war</packaging>
 
 	<properties>
 		<java.version>8</java.version>

@@ -1,9 +1,7 @@
 package com.geekbrains.july.market.controllers;
 
-import com.geekbrains.july.market.entities.Category;
 import com.geekbrains.july.market.entities.Product;
 import com.geekbrains.july.market.repositories.specifications.ProductSpecifications;
-import com.geekbrains.july.market.services.CategoriesService;
 import com.geekbrains.july.market.services.ProductsService;
 import com.geekbrains.july.market.utils.ProductFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import java.util.Map;
 @RequestMapping("/products")
 public class ProductsController {
     private ProductsService productsService;
-    private CategoriesService categoriesService;
 
     @Autowired
     public ProductsController(ProductsService productsService) {
@@ -32,10 +29,7 @@ public class ProductsController {
         Integer pageNumber = Integer.parseInt(requestParams.getOrDefault("p", "1"));
         ProductFilter productFilter = new ProductFilter(requestParams);
         Page<Product> products = productsService.findAll(productFilter.getSpec(), pageNumber);
-        //List<Product> products2 = productsService.findAll();
-        List<Category> categories = categoriesService.findAll();
         model.addAttribute("products", products);
-        // model.addAttribute("categories", categories);
         model.addAttribute("filterDef", productFilter.getFilterDefinition().toString());
         return "all_products";
     }
