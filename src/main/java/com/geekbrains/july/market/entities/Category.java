@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+//коммент для коммита
 @Entity
 @Table(name = "categories")
 @Data
